@@ -1,4 +1,4 @@
-package com.rovermars.springbootrovermars;
+package springbootrovermars;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
