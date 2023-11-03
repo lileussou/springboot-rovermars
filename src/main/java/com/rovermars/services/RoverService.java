@@ -9,6 +9,9 @@ import java.util.ArrayList;
 public class RoverService {
     public static Rover changeRoverPosition(Rover rover, ArrayList<Commands.Command> command) {
 
-        return new Rover(1, 1, Directions.Direction.EAST);
+        if(command.contains(Commands.Command.RIGHT)) {
+            return new Rover(1, 1, Directions.Direction.EAST);
+        }
+        return  new Rover(1, 1, Directions.Direction.WEST);
     }
 }
