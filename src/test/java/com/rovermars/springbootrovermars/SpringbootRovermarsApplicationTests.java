@@ -45,4 +45,18 @@ class SpringbootRovermarsApplicationTests {
 		Assert.assertEquals(facingWestRover.Facing, expectedRover.Facing);;
 	}
 
+	@Test
+	void Should_Make_Rover_Turn_Left_Twice_Facing_South () {
+		Rover currentRover = new Rover(1, 1, Directions.Direction.NORTH);
+		Rover expectedRover = new Rover(1, 1, Directions.Direction.SOUTH);
+		ArrayList<Commands.Command> turnLeftTwice = new ArrayList<>();
+		turnLeftTwice.add(Commands.Command.LEFT);
+		turnLeftTwice.add(Commands.Command.LEFT);
+
+		Rover facingSouthRover = RoverService.changeRoverPosition(currentRover, turnLeftTwice);
+		Assert.assertEquals(facingSouthRover.Longitude, expectedRover.Longitude);
+		Assert.assertEquals(facingSouthRover.Latitude, expectedRover.Latitude);
+		Assert.assertEquals(facingSouthRover.Facing, expectedRover.Facing);;
+	}
+
 }
