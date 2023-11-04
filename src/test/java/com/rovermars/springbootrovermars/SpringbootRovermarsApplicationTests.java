@@ -42,7 +42,7 @@ class SpringbootRovermarsApplicationTests {
 		Rover facingWestRover = RoverService.changeRoverPosition(currentRover, turnLeft);
 		Assert.assertEquals(facingWestRover.Longitude, expectedRover.Longitude);
 		Assert.assertEquals(facingWestRover.Latitude, expectedRover.Latitude);
-		Assert.assertEquals(facingWestRover.Facing, expectedRover.Facing);;
+		Assert.assertEquals(facingWestRover.Facing, expectedRover.Facing);
 	}
 
 	@Test
@@ -56,7 +56,7 @@ class SpringbootRovermarsApplicationTests {
 		Rover facingSouthRover = RoverService.changeRoverPosition(currentRover, turnLeftTwice);
 		Assert.assertEquals(facingSouthRover.Longitude, expectedRover.Longitude);
 		Assert.assertEquals(facingSouthRover.Latitude, expectedRover.Latitude);
-		Assert.assertEquals(facingSouthRover.Facing, expectedRover.Facing);;
+		Assert.assertEquals(facingSouthRover.Facing, expectedRover.Facing);
 	}
 
 }

@@ -12,4 +12,8 @@ public class Rover {
         Latitude = latitude;
         Facing = facing;
     }
+
+    public void setFacing(Directions.Direction newFacing) {
+        this.Facing = newFacing;
+    }
 }
