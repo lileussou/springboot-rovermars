@@ -28,6 +28,9 @@ public class RoverService {
             if (command.equals(Commands.Command.UP)) {
                 rover.setLatitude(2);
             }
+            if (command.equals(Commands.Command.DOWN)) {
+                rover.setLatitude(1);
+            }
         }
         return rover;
     }
