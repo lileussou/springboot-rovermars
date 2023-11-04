@@ -25,6 +25,9 @@ public class RoverService {
                 Directions.Direction newFacing = directions.get(newPositionIndex);
                 rover.setFacing(newFacing);
             }
+            if (command.equals(Commands.Command.UP)) {
+                rover.setLatitude(2);
+            }
         }
         return rover;
     }

@@ -27,9 +27,9 @@ class SpringbootRovermarsApplicationTests {
 		turnRight.add(Commands.Command.RIGHT);
 
 		Rover facingEastRover = RoverService.changeRoverPosition(currentRover, turnRight);
-		Assert.assertEquals(facingEastRover.Longitude, expectedRover.Longitude);
-		Assert.assertEquals(facingEastRover.Latitude, expectedRover.Latitude);
-		Assert.assertEquals(facingEastRover.Facing, expectedRover.Facing);
+		Assert.assertEquals(expectedRover.Longitude, facingEastRover.Longitude);
+		Assert.assertEquals(expectedRover.Latitude, facingEastRover.Latitude);
+		Assert.assertEquals(expectedRover.Facing, facingEastRover.Facing);
 	}
 
 	@Test
@@ -40,9 +40,9 @@ class SpringbootRovermarsApplicationTests {
 		turnLeft.add(Commands.Command.LEFT);
 
 		Rover facingWestRover = RoverService.changeRoverPosition(currentRover, turnLeft);
-		Assert.assertEquals(facingWestRover.Longitude, expectedRover.Longitude);
-		Assert.assertEquals(facingWestRover.Latitude, expectedRover.Latitude);
-		Assert.assertEquals(facingWestRover.Facing, expectedRover.Facing);
+		Assert.assertEquals(expectedRover.Longitude, facingWestRover.Longitude);
+		Assert.assertEquals(expectedRover.Latitude, facingWestRover.Latitude);
+		Assert.assertEquals(expectedRover.Facing, facingWestRover.Facing);
 	}
 
 	@Test
@@ -54,9 +54,21 @@ class SpringbootRovermarsApplicationTests {
 		turnLeftTwice.add(Commands.Command.LEFT);
 
 		Rover facingSouthRover = RoverService.changeRoverPosition(currentRover, turnLeftTwice);
-		Assert.assertEquals(facingSouthRover.Longitude, expectedRover.Longitude);
-		Assert.assertEquals(facingSouthRover.Latitude, expectedRover.Latitude);
-		Assert.assertEquals(facingSouthRover.Facing, expectedRover.Facing);
+		Assert.assertEquals(expectedRover.Longitude, facingSouthRover.Longitude);
+		Assert.assertEquals(expectedRover.Latitude, facingSouthRover.Latitude);
+		Assert.assertEquals(expectedRover.Facing, facingSouthRover.Facing);
 	}
 
+	@Test
+	void Should_Make_Rover_Move_Forward_Facing_North () {
+		Rover currentRover = new Rover(1, 1, Directions.Direction.NORTH);
+		Rover expectedRover = new Rover(1, 2, Directions.Direction.NORTH);
+		ArrayList<Commands.Command> moveForward = new ArrayList<>();
+		moveForward.add(Commands.Command.UP);
+
+		Rover facingNorthRover = RoverService.changeRoverPosition(currentRover, moveForward);
+		Assert.assertEquals(expectedRover.Longitude, facingNorthRover.Longitude);
+		Assert.assertEquals(expectedRover.Latitude, facingNorthRover.Latitude);
+		Assert.assertEquals(expectedRover.Facing, facingNorthRover.Facing);
+	}
 }
