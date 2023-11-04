@@ -26,10 +26,36 @@ public class RoverService {
                 rover.setFacing(newFacing);
             }
             if (command.equals(Commands.Command.UP)) {
-                rover.setLatitude(2);
+                switch (rover.Facing) {
+                    case NORTH :
+                        rover.setLatitude(rover.Latitude+1);
+                        break;
+                    case EAST :
+                        rover.setLongitude(rover.Longitude+1);
+                        break;
+                    case SOUTH :
+                        rover.setLatitude(rover.Latitude-1);
+                        break;
+                    case WEST :
+                        rover.setLongitude(rover.Longitude-1);
+                        break;
+                }
             }
             if (command.equals(Commands.Command.DOWN)) {
-                rover.setLatitude(1);
+                switch (rover.Facing) {
+                    case NORTH:
+                        rover.setLatitude(rover.Latitude - 1);
+                        break;
+                    case EAST:
+                        rover.setLongitude(rover.Longitude - 1);
+                        break;
+                    case SOUTH:
+                        rover.setLatitude(rover.Latitude + 1);
+                        break;
+                    case WEST:
+                        rover.setLongitude(rover.Longitude + 1);
+                        break;
+                }
             }
         }
         return rover;

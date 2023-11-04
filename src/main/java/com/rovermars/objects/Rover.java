@@ -19,4 +19,8 @@ public class Rover {
     public void setLatitude(int newLatitude) {
         this.Latitude = newLatitude;
     }
+
+    public void setLongitude(int newLongitude) {
+        this.Longitude = newLongitude;
+    }
 }
