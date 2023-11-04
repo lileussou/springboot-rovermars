@@ -1,6 +1,7 @@
 package com.rovermars.services;
 
 import com.rovermars.objects.Map;
+import com.rovermars.objects.Obstacle;
 
 public class MapService {
     public static Map createMap(int longitude, int latitude) {
@@ -8,5 +9,9 @@ public class MapService {
             throw new Error("Error: map cannot be build");
         }
         return new Map(longitude, latitude);
+    }
+
+    public static Obstacle createObstacle(int longitude, int latitude) {
+        return new Obstacle(2, 1);
     }
 }

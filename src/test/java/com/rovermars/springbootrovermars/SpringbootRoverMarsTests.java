@@ -6,7 +6,6 @@ import com.rovermars.models.Directions;
 import com.rovermars.objects.Map;
 import com.rovermars.objects.Rover;
 import com.rovermars.services.RoverService;
-import org.hamcrest.MatcherAssert;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,11 +13,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.ArrayList;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.hamcrest.Matchers.samePropertyValuesAs;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest(classes = RoverService.class)
-class SpringbootRovermarsApplicationTests {
+class SpringbootRoverMarsTests {
 
 	@Test
 	void Should_Make_Rover_Turn_Right_Facing_East () {
