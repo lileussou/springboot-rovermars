@@ -22,4 +22,13 @@ public class SpringbootMapMarsTest {
         Assert.assertEquals(expectedMap.Longitude, actualMap.Longitude);
         Assert.assertEquals(expectedMap.Latitude, actualMap.Latitude);
     }
+
+    @Test
+    void Should_Create_5_x_5_map () {
+        Map expectedMap = new Map(5, 5);
+
+        Map actualMap = MapService.createMap(5, 5);
+        Assert.assertEquals(expectedMap.Longitude, actualMap.Longitude);
+        Assert.assertEquals(expectedMap.Latitude, actualMap.Latitude);
+    }
 }
