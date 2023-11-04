@@ -31,4 +31,16 @@ public class SpringbootMapMarsTest {
         Assert.assertEquals(expectedMap.Longitude, actualMap.Longitude);
         Assert.assertEquals(expectedMap.Latitude, actualMap.Latitude);
     }
+
+    @Test
+    void Should_Create_0_x_0_map () throws Exception {
+        Error expectError = new Error("Error: map cannot be build");
+        Exception returnedError;
+
+        try {
+            Map actualMap = MapService.createMap(0, 0);
+        } catch (Exception error) {
+            Assert.assertEquals(expectError, error);
+        }
+    }
 }

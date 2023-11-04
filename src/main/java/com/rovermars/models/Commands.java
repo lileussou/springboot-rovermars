@@ -4,7 +4,7 @@ public class Commands {
     public enum Command {
         LEFT,
         RIGHT,
-        UP,
-        DOWN
+        FORWARD,
+        BACKWARD
     }
 }

@@ -2,13 +2,14 @@ package com.rovermars.services;
 
 import com.rovermars.models.Commands;
 import com.rovermars.models.Directions;
+import com.rovermars.objects.Map;
 import com.rovermars.objects.Rover;
 
 import java.util.ArrayList;
 
 
 public class RoverService {
-    public static Rover changeRoverPosition(Rover rover, ArrayList<Commands.Command> commands) {
+    public static Rover changeRoverPosition(Rover rover, ArrayList<Commands.Command> commands, Map map) {
 
         ArrayList<Directions.Direction> directions = Directions.Direction.getValue();
 
@@ -25,7 +26,7 @@ public class RoverService {
                 Directions.Direction newFacing = directions.get(newPositionIndex);
                 rover.setFacing(newFacing);
             }
-            if (command.equals(Commands.Command.UP)) {
+            if (command.equals(Commands.Command.FORWARD)) {
                 switch (rover.Facing) {
                     case NORTH :
                         rover.setLatitude(rover.Latitude+1);
@@ -41,7 +42,7 @@ public class RoverService {
                         break;
                 }
             }
-            if (command.equals(Commands.Command.DOWN)) {
+            if (command.equals(Commands.Command.BACKWARD)) {
                 switch (rover.Facing) {
                     case NORTH:
                         rover.setLatitude(rover.Latitude - 1);
@@ -57,7 +58,40 @@ public class RoverService {
                         break;
                 }
             }
+            checkIfRoverMoveOutOfEdge(rover, map);
         }
         return rover;
+    }
+
+    public static Rover checkIfRoverMoveOutOfEdge(Rover rover, Map map) {
+        if (rover.Longitude > map.Longitude) {
+            rover.setLongitude(1);
+        }
+        if (rover.Longitude < 1) {
+            rover.setLongitude(map.Longitude);
+        }
+        if (rover.Latitude > map.Latitude) {
+            rover.setLatitude(1);
+        }
+        if (rover.Latitude < 1) {
+            rover.setLatitude(map.Latitude);
+        }
+        return rover;
+    }
+
+    public static int angleBasedOnRoverDirection(Directions.Direction facing) {
+        int roverAngle = 0;
+        switch (facing) {
+            case EAST :
+                roverAngle = 90;
+                break;
+            case SOUTH :
+                roverAngle = 180;
+                break;
+            case WEST :
+                roverAngle = 270;
+                break;
+        }
+        return roverAngle;
     }
 }
