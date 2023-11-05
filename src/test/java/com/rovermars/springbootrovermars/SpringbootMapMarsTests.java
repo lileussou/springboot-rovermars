@@ -6,6 +6,8 @@ import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 @SpringBootTest(classes = MapService.class)
 public class SpringbootMapMarsTests {
     @Test
@@ -27,14 +29,15 @@ public class SpringbootMapMarsTests {
     }
 
     @Test
-    void Should_Create_0_x_0_map () throws Exception {
-        Error expectError = new Error("Error: map cannot be build");
-        Exception returnedError;
+    void Should_Create_0_x_0_map () throws Error {
+        Error expectedError = new Error("Error: map cannot be build");
+        Error actualError = null;
 
         try {
             Map actualMap = MapService.createMap(0, 0);
-        } catch (Exception error) {
-            Assert.assertEquals(expectError, error);
+        } catch (Error error) {
+            actualError = error;
         }
+        Assert.assertEquals(expectedError.getMessage(), actualError.getMessage());
     }
 }
