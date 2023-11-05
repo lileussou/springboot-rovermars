@@ -1,4 +1,4 @@
-package com.rovermars.controller;
+package springbootrovermars;
 
 import com.rovermars.models.Commands;
 import com.rovermars.models.Directions;
@@ -13,18 +13,19 @@ import java.util.ArrayList;
 
 @RestController
 public class roverController {
-    @PostMapping("/rover_mars/create_rover")
+    @PostMapping("/roverMars/createRover")
     public Rover createRover() {
-        return RoverService.createRover();
+        Rover newRover = RoverService.createRover();
+        return newRover;
     }
 
-    @PostMapping("/rover_mars/change_rover_direction")
+    @PostMapping("/roverMars/changeRoverDirection")
     public Rover changeRoverDirection(Rover rover, ArrayList<Commands.Command> commands, Map map) {
         Rover newRoverPosition = RoverService.changeRoverPosition(rover, commands, map);
         return newRoverPosition;
     }
 
-    @PostMapping("/rover_mars/get_angle")
+    @PostMapping("/roverMars/getAngle")
     public Integer getAngleBasedOnRoverFacing(Rover rover) {
         int newRoverAngle = RoverService.angleBasedOnRoverDirection(rover.Facing);
         return newRoverAngle;

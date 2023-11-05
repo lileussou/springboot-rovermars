@@ -1,4 +1,4 @@
-package com.rovermars.controller;
+package springbootrovermars;
 
 import com.rovermars.objects.Map;
 import com.rovermars.objects.Obstacle;
@@ -11,19 +11,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import java.util.ArrayList;
 
 public class mapController {
-    @PostMapping("/map_mars/create_map")
+    @PostMapping("/mapMars/createMap")
     public Map createMap(int longitude, int latitude) {
         Map newMap = MapService.createMap(longitude, latitude);
         return newMap;
     }
 
-    @PostMapping("/map_mars/create_obstacle")
+    @PostMapping("/mapMars/createObstacle")
     public Obstacle createObstacle(int longitude, int latitude, Map map, Rover rover, ArrayList<Obstacle> obstacles) {
         Obstacle newObstacle = MapService.createObstacle(longitude, latitude, map, rover, obstacles);
         return newObstacle;
     }
 
-    @PostMapping("/map_mars/delete_obstacle")
+    @PostMapping("/mapMars/deleteObstacle")
     public ArrayList<Obstacle> deleteObstacle(ArrayList<Obstacle> obstacles, Obstacle obstacle) {
         ArrayList<Obstacle> newObstaclesList = MapService.deleteObstacle(obstacles, obstacle);
         return newObstaclesList;
