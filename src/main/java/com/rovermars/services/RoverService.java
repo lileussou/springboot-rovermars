@@ -9,6 +9,10 @@ import java.util.ArrayList;
 
 
 public class RoverService {
+
+    public static Rover createRover() {
+        return new Rover(1, 1, Directions.Direction.NORTH);
+    }
     public static Rover changeRoverPosition(Rover rover, ArrayList<Commands.Command> commands, Map map) {
 
         ArrayList<Directions.Direction> directions = Directions.Direction.getValue();

@@ -30,4 +30,11 @@ public class MapService {
         }
         return new Obstacle(longitude, latitude);
     }
+
+    public static ArrayList<Obstacle> deleteObstacle(ArrayList<Obstacle> obstacles, Obstacle obstacle) {
+        obstacles.removeIf(element -> element.Longitude == obstacle.Longitude
+        && element.Latitude == obstacle.Latitude);
+
+        return obstacles;
+    }
 }

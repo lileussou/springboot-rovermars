@@ -143,4 +143,14 @@ class SpringbootRoverMarsTests {
 		int getRoverAngle = RoverService.angleBasedOnRoverDirection(currentRover.Facing);
 		Assert.assertEquals(expectedAngle, getRoverAngle);
 	}
+
+	@Test
+	void Should_Create_A_Rover() {
+		Rover expectedRover = new Rover(1, 1, Directions.Direction.NORTH);
+
+		Rover createRover = RoverService.createRover();
+		Assert.assertEquals(expectedRover.Longitude, createRover.Longitude);
+		Assert.assertEquals(expectedRover.Latitude, createRover.Latitude);
+		Assert.assertEquals(expectedRover.Facing, createRover.Facing);
+	}
 }

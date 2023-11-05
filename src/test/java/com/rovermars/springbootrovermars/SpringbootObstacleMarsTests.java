@@ -78,4 +78,23 @@ public class SpringbootObstacleMarsTests {
         }
         Assert.assertEquals(expectedError.getMessage(), actualError.getMessage());
     }
+
+    @Test
+    void Should_Delete_An_Obstacle_In_Obstacle_List() {
+        Map map = new Map(5,5);
+        Obstacle obstacleToDelete = new Obstacle(3,4);
+        ArrayList<Obstacle> expectedObstacle = new ArrayList<>();
+        expectedObstacle.add(new Obstacle(2,3));
+        expectedObstacle.add(new Obstacle(4, 5));
+        ArrayList<Obstacle> obstacles = new ArrayList<>();
+        obstacles.add(new Obstacle(2,3));
+        obstacles.add(new Obstacle(3, 4));
+        obstacles.add(new Obstacle(4, 5));
+
+        ArrayList<Obstacle> newObstacles = MapService.deleteObstacle(obstacles, obstacleToDelete);
+        Assert.assertEquals(expectedObstacle.get(0).Longitude, newObstacles.get(0).Longitude);
+        Assert.assertEquals(expectedObstacle.get(0).Latitude, newObstacles.get(0).Latitude);
+        Assert.assertEquals(expectedObstacle.get(1).Longitude, newObstacles.get(1).Longitude);
+        Assert.assertEquals(expectedObstacle.get(1).Latitude, newObstacles.get(1).Latitude);
+    }
 }
